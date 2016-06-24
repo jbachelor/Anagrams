@@ -17,6 +17,8 @@ let ScreenHeight = UIScreen.mainScreen().bounds.size.height
 
 //Random number generator
 func randomNumber(minInclusive minInclusive: Int, maxExclusive: Int) -> Int {
+    print("\(#file.componentsSeparatedByString("/").last!) --> \(#function)")
+    
     let uMin = UInt32(minInclusive)
     let uMax = UInt32(maxExclusive)
     let result = Int(arc4random_uniform(uMax - uMin) + uMin)

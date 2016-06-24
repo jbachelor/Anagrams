@@ -9,11 +9,13 @@ func randomNumber(min min: Int, max: Int) -> Int {
     return Int(arc4random_uniform(uMax-uMin) + uMin)
 }
 
-for i in 0...1000 {
-    let randomNum = randomNumber(min: 5, max: 10)
-//    print(randomNum)
-    if randomNum == 9 {
-        print("****************")
-    }
-    
-}
+//for i in 0...1000 {
+//    let randomNum = randomNumber(min: 5, max: 10)
+////    print(randomNum)
+//    if randomNum == 9 {
+//        print("****************")
+//    }
+//    
+//}
+
+print(#file.componentsSeparatedByString("."))

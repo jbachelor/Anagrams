@@ -15,6 +15,7 @@ struct Level {
     
     
     init(levelNumber: Int) {
+        print("\(#file.componentsSeparatedByString("/").last!) --> \(#function)")
         // Find plist file for this level
         let fileName = "level\(levelNumber).plist"
         let levelPath = "\(NSBundle.mainBundle().resourcePath!)/\(fileName)"
