@@ -14,7 +14,7 @@ class ViewController: UIViewController {
     
     
     required init?(coder aDecoder: NSCoder) {
-        print("\(#file.componentsSeparatedByString("/").last!) --> \(#function)")
+        logFn(file: #file, function: #function)
         
         gameController = GameController()
         super.init(coder: aDecoder)
@@ -23,7 +23,7 @@ class ViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        print("\(#file.componentsSeparatedByString("/").last!) --> \(#function)")
+        logFn(file: #file, function: #function)
         
         let level1 = Level(levelNumber: 1)
         // Add one layer for all game elements:
@@ -37,12 +37,12 @@ class ViewController: UIViewController {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
         
-        print("\(#file.componentsSeparatedByString("/").last!) --> \(#function)")
+        logFn(file: #file, function: #function)
     }
     
     
     override func prefersStatusBarHidden() -> Bool {
-        print("\(#file.componentsSeparatedByString("/").last!) --> \(#function)")
+        logFn(file: #file, function: #function)
         
         return true
     }

@@ -18,14 +18,14 @@ class GameController {
     
     
     func dealRandomAnagram() {
-        print("\(#file.componentsSeparatedByString("/").last!) --> \(#function)")
+        logFn(file: #file, function: #function)
         
         let anagramPair = getAnagramPair()        
     }
     
     
     private func getAnagramPair() -> (anagram1: String, anagram2: String) {
-        print("\(#file.componentsSeparatedByString("/").last!) --> \(#function)")
+        logFn(file: #file, function: #function)
         
         assert(level.anagrams.count > 0, "Oh noes! No level loaded!")
         
