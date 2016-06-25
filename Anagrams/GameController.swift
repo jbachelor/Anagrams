@@ -46,6 +46,9 @@ class GameController {
             let tile = TileView(letter: letter, sideLength: tileSide)
             tile.center = CGPointMake(xOffset + CGFloat(index) * (tileSide + TileMargin), ScreenHeight/4*3)
             
+            // make that tile look a little askew for the funky-chicken!
+            tile.randomizeTileLayout()
+            
             gameView.addSubview(tile)
             tiles.append(tile)
         }

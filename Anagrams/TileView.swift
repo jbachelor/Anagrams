@@ -14,10 +14,12 @@ class TileView: UIImageView {
     var isMatched: Bool = false
 
     required init(coder aDecoder: NSCoder) {
-        fatalError("This initializer should never be called. Please use init(letter:sideLength:")
+        fatalError("This initializer should never be called! Please use init(letter:sideLength:")
     }
     
     init(letter: Character, sideLength: CGFloat) {
+        logFn(file: #file, function: #function)
+        
         self.letter = letter
         let image = UIImage(named: "tile")!
         super.init(image: image)
@@ -34,6 +36,19 @@ class TileView: UIImageView {
         letterLabel.text = String(letter).uppercaseString
         letterLabel.font = UIFont(name: "Verdana-Bold", size: 78.0 * scale)
         self.addSubview(letterLabel)
+    }
+    
+    
+    func randomizeTileLayout() {
+        logFn(file: #file, function: #function)
+        
+        // randomize angle of placement
+        let rotation = CGFloat(randomNumber(minInclusive: 0, maxExclusive: 51)) / 100.0 - 0.2
+        self.transform = CGAffineTransformMakeRotation(rotation)
+        
+        // randomly move up just a bit
+        let yOffset = CGFloat(randomNumber(minInclusive: 0, maxExclusive: 11) - 11)
+        self.center = CGPointMake(self.center.x, self.center.y + yOffset)
     }
     
 }
