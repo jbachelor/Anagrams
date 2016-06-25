@@ -30,6 +30,9 @@ class ViewController: UIViewController {
         let gameView = UIView(frame: CGRectMake(0, 0, ScreenWidth, ScreenHeight))
         self.view.addSubview(gameView)
         gameController.gameView = gameView
+        
+        gameController.level = level1
+        gameController.dealRandomAnagram()
     }
     
     

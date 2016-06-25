@@ -12,6 +12,7 @@ import UIKit
 //UI Constants
 let ScreenWidth = UIScreen.mainScreen().bounds.size.width
 let ScreenHeight = UIScreen.mainScreen().bounds.size.height
+let TileMargin: CGFloat = 20.0
 
 
 
