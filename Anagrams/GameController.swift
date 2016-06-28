@@ -14,6 +14,7 @@ class GameController {
     var level: Level!
     
     private var tiles = [TileView]()
+    private var targets = [TargetView]()
     
     
     init() { }
@@ -36,6 +37,23 @@ class GameController {
         // adjust for tile center, instead of the tile's origin
         xOffset += tileSide / 2.0
         
+        // Initialize target list
+        targets = []
+        
+        // create targets
+        for (index, letter) in anagramPair.anagram2.characters.enumerate() {
+            if letter == " " {
+                continue
+            }
+            
+            let target = TargetView(letter: letter, sideLength: tileSide)
+            target.center = CGPointMake(xOffset + CGFloat(index) * (tileSide + TileMargin), ScreenHeight/4)
+            
+            gameView.addSubview(target)
+            targets.append(target)
+        }
+        
+        // Initialize tile list
         tiles = []
         
         for (index, letter) in anagramPair.anagram1.characters.enumerate() {
