@@ -66,6 +66,7 @@ class GameController {
             
             // make that tile look a little askew for the funky-chicken!
             tile.randomizeTileLayout()
+            tile.dragDelegate = self
             
             gameView.addSubview(tile)
             tiles.append(tile)
@@ -88,6 +89,35 @@ class GameController {
         print("phrase2[\(anagram2.characters.count)]:  \(anagram2)")
         
         return(anagram1, anagram2)
+    }
+    
+}
+
+
+
+extension GameController: TileDragDelegateProtocol {
+    
+    func tileView(tileView: TileView, didDragToPoint point: CGPoint) {
+        var targetView: TargetView?
+        for tv in targets {
+            if tv.frame.contains(point) && !tv.isMatched {
+                targetView = tv
+                break
+            }
+        }
+        
+        if let targetView = targetView {
+            if targetView.letter == tileView.letter {
+                print("Success! You should place the tile here!")
+                // todo: More success stuff
+                print("Check if the player has completed the phrase")
+            } else {
+                print("Failure... Let the player know this tile does not belong here")
+                // todo: More failure stuff
+            }
+        } else {
+            print("Tile dropped, but not on a target.")
+        }
     }
     
 }

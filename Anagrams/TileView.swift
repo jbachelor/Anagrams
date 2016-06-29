@@ -8,10 +8,17 @@
 
 import UIKit
 
+
+protocol TileDragDelegateProtocol {
+    func tileView(tileView: TileView, didDragToPoint: CGPoint)
+}
+
+
 class TileView: UIImageView {
     
     var letter: Character
     var isMatched: Bool = false
+    var dragDelegate: TileDragDelegateProtocol?
     
     private var xOffset: CGFloat = 0.0
     private var yOffset: CGFloat = 0.0
@@ -77,6 +84,7 @@ class TileView: UIImageView {
     
     override func touchesEnded(touches: Set<UITouch>, withEvent event: UIEvent?) {
         self.touchesMoved(touches, withEvent: event)
+        dragDelegate?.tileView(self, didDragToPoint: self.center)
     }
     
 }
