@@ -12,6 +12,9 @@ class TileView: UIImageView {
     
     var letter: Character
     var isMatched: Bool = false
+    
+    private var xOffset: CGFloat = 0.0
+    private var yOffset: CGFloat = 0.0
 
     required init(coder aDecoder: NSCoder) {
         fatalError("This initializer should never be called! Please use init(letter:sideLength:")
@@ -36,6 +39,7 @@ class TileView: UIImageView {
         letterLabel.text = String(letter).uppercaseString
         letterLabel.font = UIFont(name: "Verdana-Bold", size: 78.0 * scale)
         self.addSubview(letterLabel)
+        self.userInteractionEnabled = true
     }
     
     
@@ -49,6 +53,30 @@ class TileView: UIImageView {
         // randomly move up just a bit
         let yOffset = CGFloat(randomNumber(minInclusive: 0, maxExclusive: 11) - 11)
         self.center = CGPointMake(self.center.x, self.center.y + yOffset)
+    }
+    
+    
+    override func touchesBegan(touches: Set<UITouch>, withEvent event: UIEvent?) {
+        // todo: Is there a safer way to do this without the force unwrap?
+        if let touch = touches.first! as? UITouch {
+            let point = touch.locationInView(self.superview)
+            xOffset = point.x - self.center.x
+            yOffset = point.y - self.center.y
+        }
+    }
+    
+    
+    override func touchesMoved(touches: Set<UITouch>, withEvent event: UIEvent?) {
+        // todo: Is there a safer way to do this without the force unwrap?
+        if let touch = touches.first! as? UITouch {
+            let point = touch.locationInView(self.superview)
+            self.center = CGPointMake(point.x - xOffset, point.y - yOffset)
+        }
+    }
+    
+    
+    override func touchesEnded(touches: Set<UITouch>, withEvent event: UIEvent?) {
+        self.touchesMoved(touches, withEvent: event)
     }
     
 }
