@@ -31,6 +31,11 @@ class ViewController: UIViewController {
         self.view.addSubview(gameView)
         gameController.gameView = gameView
         
+        // add one view for all HUD and controls
+        let hudView = HUDView(frame: CGRect(x: 0, y: 0, width: ScreenWidth, height: ScreenHeight))
+        self.view.addSubview(hudView)
+        gameController.hud = hudView
+        
         gameController.level = level1
         gameController.dealRandomAnagram()
     }

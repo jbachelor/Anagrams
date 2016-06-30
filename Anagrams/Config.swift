@@ -13,6 +13,8 @@ import UIKit
 let ScreenWidth = UIScreen.mainScreen().bounds.size.width
 let ScreenHeight = UIScreen.mainScreen().bounds.size.height
 let TileMargin: CGFloat = 20.0
+let FontHUD = UIFont(name: "comic andy", size: 62.0)
+let FontHUDBig = UIFont(name: "comic andy", size: 120.0)
 
 
 

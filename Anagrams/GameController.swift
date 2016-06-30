@@ -12,9 +12,12 @@ class GameController {
     
     var gameView: UIView!
     var level: Level!
+    var hud: HUDView!
     
     private var tiles = [TileView]()
     private var targets = [TargetView]()
+    private var secondsLeft: Int = 0
+    private var timer: NSTimer?
     
     
     init() { }
@@ -71,6 +74,9 @@ class GameController {
             gameView.addSubview(tile)
             tiles.append(tile)
         }
+        
+        // start game timer
+        self.startStopwatch()
     }
     
     
@@ -97,6 +103,34 @@ class GameController {
             }
         }
         print("Game over... You win! (((don't tell Dustin!)))")
+        self.stopStopwatch()
+    }
+    
+    
+    func startStopwatch() {
+        secondsLeft = level.timeToSolve
+        hud.stopwatch.setSecondsRemaining(secondsLeft)
+        
+        timer = NSTimer.scheduledTimerWithTimeInterval(1.0,
+                                                       target: self,
+                                                       selector: #selector(GameController.tick(_:)),
+                                                       userInfo: nil,
+                                                       repeats: true)
+    }
+    
+    
+    func stopStopwatch() {
+        timer?.invalidate()
+        timer = nil
+    }
+    
+    
+    @objc func tick(timer: NSTimer) {
+        secondsLeft -= 1
+        hud.stopwatch.setSecondsRemaining(secondsLeft)
+        if secondsLeft == 0 {
+            self.stopStopwatch()
+        }
     }
     
     
