@@ -74,6 +74,32 @@ class GameController {
     }
     
     
+    func placeTile(tileView: TileView, targetView: TargetView) {
+        targetView.isMatched = true
+        tileView.isMatched = true
+        
+        tileView.userInteractionEnabled = false
+        
+        UIView.animateWithDuration(0.35, delay: 0.00, options: UIViewAnimationOptions.CurveEaseOut, animations: {
+            tileView.center = targetView.center
+            tileView.transform = CGAffineTransformIdentity
+            }, completion: {
+                (value: Bool) in
+                targetView.hidden = true
+        })
+    }
+    
+    
+    func checkForSuccess() {
+        for targetView in targets {
+            if !targetView.isMatched {
+                return
+            }
+        }
+        print("Game over... You win! (((don't tell Dustin!)))")
+    }
+    
+    
     private func getAnagramPair() -> (anagram1: String, anagram2: String) {
         logFn(file: #file, function: #function)
         
@@ -98,6 +124,7 @@ class GameController {
 extension GameController: TileDragDelegateProtocol {
     
     func tileView(tileView: TileView, didDragToPoint point: CGPoint) {
+        logFn(file: #file, function: #function)
         var targetView: TargetView?
         for tv in targets {
             if tv.frame.contains(point) && !tv.isMatched {
@@ -108,12 +135,18 @@ extension GameController: TileDragDelegateProtocol {
         
         if let targetView = targetView {
             if targetView.letter == tileView.letter {
-                print("Success! You should place the tile here!")
-                // todo: More success stuff
-                print("Check if the player has completed the phrase")
+                print("Successful tile placement!")
+                self.placeTile(tileView, targetView: targetView)
+                self.checkForSuccess()
             } else {
                 print("Failure... Let the player know this tile does not belong here")
-                // todo: More failure stuff
+                tileView.randomizeTileLayout()
+                UIView.animateWithDuration(0.35, delay: 0.00,
+                                           options: UIViewAnimationOptions.CurveEaseOut,
+                                           animations: {
+                                            tileView.center = CGPointMake(tileView.center.x + CGFloat(randomNumber(minInclusive: 0, maxExclusive: 41) - 20),
+                                            tileView.center.y + CGFloat(randomNumber(minInclusive: 20, maxExclusive: 31)))
+                    }, completion: nil)
             }
         } else {
             print("Tile dropped, but not on a target.")
