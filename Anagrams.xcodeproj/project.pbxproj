@@ -38,6 +38,8 @@
 		F3496FBF1D1E0858000CE15A /* TargetView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F3496FBE1D1E0858000CE15A /* TargetView.swift */; };
 		F3F5C4E21D2567D80058DF71 /* StopwatchView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F3F5C4E11D2567D80058DF71 /* StopwatchView.swift */; };
 		F3F5C4E41D2568DE0058DF71 /* HUDView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F3F5C4E31D2568DE0058DF71 /* HUDView.swift */; };
+		F3F5C4E61D25B00E0058DF71 /* GameData.swift in Sources */ = {isa = PBXBuildFile; fileRef = F3F5C4E51D25B00E0058DF71 /* GameData.swift */; };
+		F3F5C4E81D26BADA0058DF71 /* CounterLabelView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F3F5C4E71D26BADA0058DF71 /* CounterLabelView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -86,6 +88,8 @@
 		F3496FBE1D1E0858000CE15A /* TargetView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TargetView.swift; sourceTree = "<group>"; };
 		F3F5C4E11D2567D80058DF71 /* StopwatchView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StopwatchView.swift; sourceTree = "<group>"; };
 		F3F5C4E31D2568DE0058DF71 /* HUDView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HUDView.swift; sourceTree = "<group>"; };
+		F3F5C4E51D25B00E0058DF71 /* GameData.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GameData.swift; sourceTree = "<group>"; };
+		F3F5C4E71D26BADA0058DF71 /* CounterLabelView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CounterLabelView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -192,6 +196,7 @@
 			isa = PBXGroup;
 			children = (
 				F3496FB81D1DEDFD000CE15A /* Level.swift */,
+				F3F5C4E51D25B00E0058DF71 /* GameData.swift */,
 			);
 			name = Models;
 			sourceTree = "<group>";
@@ -203,6 +208,7 @@
 				F3496FBE1D1E0858000CE15A /* TargetView.swift */,
 				F3F5C4E11D2567D80058DF71 /* StopwatchView.swift */,
 				F3F5C4E31D2568DE0058DF71 /* HUDView.swift */,
+				F3F5C4E71D26BADA0058DF71 /* CounterLabelView.swift */,
 			);
 			name = Views;
 			sourceTree = "<group>";
@@ -388,8 +394,10 @@
 			buildActionMask = 2147483647;
 			files = (
 				F3F5C4E41D2568DE0058DF71 /* HUDView.swift in Sources */,
+				F3F5C4E61D25B00E0058DF71 /* GameData.swift in Sources */,
 				82C88988198B13A700F90156 /* ViewController.swift in Sources */,
 				F3496FBB1D1DF185000CE15A /* GameController.swift in Sources */,
+				F3F5C4E81D26BADA0058DF71 /* CounterLabelView.swift in Sources */,
 				82C88986198B13A700F90156 /* AppDelegate.swift in Sources */,
 				F3496FB91D1DEDFD000CE15A /* Level.swift in Sources */,
 				F3496FBD1D1DFAD2000CE15A /* TileView.swift in Sources */,

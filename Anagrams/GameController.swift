@@ -18,6 +18,7 @@ class GameController {
     private var targets = [TargetView]()
     private var secondsLeft: Int = 0
     private var timer: NSTimer?
+    private var data = GameData()
     
     
     init() { }
@@ -171,6 +172,7 @@ extension GameController: TileDragDelegateProtocol {
             if targetView.letter == tileView.letter {
                 print("Successful tile placement!")
                 self.placeTile(tileView, targetView: targetView)
+                data.points += level.pointsPerTile
                 self.checkForSuccess()
             } else {
                 print("Failure... Let the player know this tile does not belong here")
@@ -181,7 +183,11 @@ extension GameController: TileDragDelegateProtocol {
                                             tileView.center = CGPointMake(tileView.center.x + CGFloat(randomNumber(minInclusive: 0, maxExclusive: 41) - 20),
                                             tileView.center.y + CGFloat(randomNumber(minInclusive: 20, maxExclusive: 31)))
                     }, completion: nil)
+                data.points -= level.pointsPerTile/2
             }
+            
+            hud.gamePoints.value = data.points
+            
         } else {
             print("Tile dropped, but not on a target.")
         }

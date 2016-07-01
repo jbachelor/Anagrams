@@ -20,11 +20,13 @@ let FontHUDBig = UIFont(name: "comic andy", size: 120.0)
 
 //Random number generator
 func randomNumber(minInclusive minInclusive: Int, maxExclusive: Int) -> Int {
-    logFn(file: #file, function: #function)
     
     let uMin = UInt32(minInclusive)
     let uMax = UInt32(maxExclusive)
     let result = Int(arc4random_uniform(uMax - uMin) + uMin)
+    
+    logFn(file: #file, function: #function, message: "\(result)")
+    
     return result
 }
 
