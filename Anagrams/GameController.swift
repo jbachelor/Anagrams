@@ -160,10 +160,12 @@ extension GameController: TileDragDelegateProtocol {
     
     func tileView(tileView: TileView, didDragToPoint point: CGPoint) {
         logFn(file: #file, function: #function)
+        
         var targetView: TargetView?
-        for tv in targets {
-            if tv.frame.contains(point) && !tv.isMatched {
-                targetView = tv
+        
+        for tView in targets {
+            if tView.frame.contains(point) && !tView.isMatched {
+                targetView = tView
                 break
             }
         }
@@ -173,6 +175,7 @@ extension GameController: TileDragDelegateProtocol {
                 print("Successful tile placement!")
                 self.placeTile(tileView, targetView: targetView)
                 data.points += level.pointsPerTile
+                hud.gamePoints.setValue(data.points, duration: 0.5)
                 self.checkForSuccess()
             } else {
                 print("Failure... Let the player know this tile does not belong here")
@@ -184,10 +187,8 @@ extension GameController: TileDragDelegateProtocol {
                                             tileView.center.y + CGFloat(randomNumber(minInclusive: 20, maxExclusive: 31)))
                     }, completion: nil)
                 data.points -= level.pointsPerTile/2
-            }
-            
-            hud.gamePoints.value = data.points
-            
+                hud.gamePoints.setValue(data.points, duration: 0.25)
+            }                        
         } else {
             print("Tile dropped, but not on a target.")
         }
