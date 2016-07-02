@@ -16,6 +16,7 @@ struct Level {
     
     init(levelNumber: Int) {
         logFn(file: #file, function: #function, message: "\(levelNumber)")
+        
         // Find plist file for this level
         let fileName = "level\(levelNumber).plist"
         let levelPath = "\(NSBundle.mainBundle().resourcePath!)/\(fileName)"

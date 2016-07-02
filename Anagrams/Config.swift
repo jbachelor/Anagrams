@@ -9,16 +9,16 @@
 import Foundation
 import UIKit
 
-//UI Constants
+
 let ScreenWidth = UIScreen.mainScreen().bounds.size.width
 let ScreenHeight = UIScreen.mainScreen().bounds.size.height
 let TileMargin: CGFloat = 20.0
-let FontHUD = UIFont(name: "comic andy", size: 62.0)
-let FontHUDBig = UIFont(name: "comic andy", size: 120.0)
+let fontHUDName = "comic andy"
+let FontHUD = UIFont(name: fontHUDName, size: 62.0)
+let FontHUDBig = UIFont(name: fontHUDName, size: 120.0)
 
 
 
-//Random number generator
 func randomNumber(minInclusive minInclusive: Int, maxExclusive: Int) -> Int {
     
     let uMin = UInt32(minInclusive)

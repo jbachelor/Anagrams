@@ -29,7 +29,7 @@ class HUDView: UIView {
         super.init(frame: frame)
         
         self.addSubview(gamePoints)
-        var pointsLabel = UILabel(frame: CGRectMake(ScreenWidth - 340, 30, 140, 70))
+        let pointsLabel = UILabel(frame: CGRectMake(ScreenWidth - 340, 30, 140, 70))
         pointsLabel.backgroundColor = UIColor.clearColor()
         pointsLabel.font = FontHUD
         pointsLabel.text = " Points:"

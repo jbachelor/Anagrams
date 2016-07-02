@@ -10,7 +10,6 @@ import UIKit
 
 class StopwatchView: UILabel {
     
-    // this init should never be called:
     required init(coder aDecoder: NSCoder) {
         fatalError("Nope... Don't use this initializer. Please use init(frame:)")
     }

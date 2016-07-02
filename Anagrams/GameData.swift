@@ -12,7 +12,6 @@ class GameData {
     
     var points: Int = 0 {
         didSet {
-            // Making sure the points stay positive
             logFn(file: #file, function: #function, message: "Set points to: \(points).")
             points = max(points, 0)
         }

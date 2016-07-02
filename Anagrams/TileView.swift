@@ -10,12 +10,16 @@ import UIKit
 
 
 protocol TileDragDelegateProtocol {
+    
     func tileView(tileView: TileView, didDragToPoint: CGPoint)
+    
 }
 
 
 class TileView: UIImageView {
     
+    let tileFont = "Verdana-Bold"
+    let tileFontSize: CGFloat = 78.0
     var letter: Character
     var isMatched: Bool = false
     var dragDelegate: TileDragDelegateProtocol?
@@ -38,13 +42,13 @@ class TileView: UIImageView {
         let scale = sideLength / image.size.width
         self.frame = CGRect(x: 0, y: 0, width: image.size.width * scale, height: image.size.height * scale)
         
-        // Add a letter on top
+        // Add a letter on top of tile
         let letterLabel = UILabel(frame: self.bounds)
         letterLabel.textAlignment = NSTextAlignment.Center
         letterLabel.textColor = UIColor.whiteColor()
         letterLabel.backgroundColor = UIColor.clearColor()
         letterLabel.text = String(letter).uppercaseString
-        letterLabel.font = UIFont(name: "Verdana-Bold", size: 78.0 * scale)
+        letterLabel.font = UIFont(name: tileFont, size: tileFontSize * scale)
         self.addSubview(letterLabel)
         self.userInteractionEnabled = true
     }

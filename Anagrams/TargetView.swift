@@ -13,9 +13,8 @@ class TargetView: UIImageView {
     var letter: Character
     var isMatched: Bool = false
     
-    // Never, ever, ever call this. Seriously... Don't even think about it!
     required init(coder aDecoder: NSCoder) {
-        fatalError("WHAT did I say about calling this method??")
+        fatalError("WHAT did I say about calling this method?? Never!")
     }
     
     init(letter: Character, sideLength: CGFloat) {
