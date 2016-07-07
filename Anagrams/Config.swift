@@ -16,6 +16,10 @@ let TileMargin: CGFloat = 20.0
 let fontHUDName = "comic andy"
 let FontHUD = UIFont(name: fontHUDName, size: 62.0)
 let FontHUDBig = UIFont(name: fontHUDName, size: 120.0)
+let SoundDing = "ding.mp3"
+let SoundWrong = "wrong.m4a"
+let SoundWin = "win.mp3"
+let AudioEffectFiles = [SoundDing, SoundWrong, SoundWin]
 
 
 

@@ -19,9 +19,13 @@ class GameController {
     private var secondsLeft: Int = 0
     private var timer: NSTimer?
     private var data = GameData()
+    private var audioController: AudioController
     
     
-    init() { }
+    init() {
+        self.audioController = AudioController()
+        self.audioController.preloadAudioEffects(AudioEffectFiles)
+    }
     
     
     func dealRandomAnagram() {
@@ -105,6 +109,7 @@ class GameController {
         }
         print("Game over... You win! (((don't tell Dustin!)))")
         self.stopStopwatch()
+        audioController.playEffect(SoundWin)
     }
     
     
@@ -173,12 +178,14 @@ extension GameController: TileDragDelegateProtocol {
         if let targetView = targetView {
             if targetView.letter == tileView.letter {
                 print("Successful tile placement!")
+                audioController.playEffect(SoundDing)
                 self.placeTile(tileView, targetView: targetView)
                 data.points += level.pointsPerTile
                 hud.gamePoints.setValue(data.points, duration: 0.5)
                 self.checkForSuccess()
             } else {
                 print("Failure... Let the player know this tile does not belong here")
+                audioController.playEffect(SoundWrong)
                 tileView.randomizeTileLayout()
                 UIView.animateWithDuration(0.35, delay: 0.00,
                                            options: UIViewAnimationOptions.CurveEaseOut,

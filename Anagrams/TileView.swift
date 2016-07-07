@@ -26,6 +26,7 @@ class TileView: UIImageView {
     
     private var xOffset: CGFloat = 0.0
     private var yOffset: CGFloat = 0.0
+    private var tempTransform: CGAffineTransform = CGAffineTransformIdentity
 
     required init(coder aDecoder: NSCoder) {
         fatalError("This initializer should never be called! Please use init(letter:sideLength:")
@@ -51,6 +52,16 @@ class TileView: UIImageView {
         letterLabel.font = UIFont(name: tileFont, size: tileFontSize * scale)
         self.addSubview(letterLabel)
         self.userInteractionEnabled = true
+        
+        // Create tile shadow
+        self.layer.shadowColor = UIColor.blackColor().CGColor
+        self.layer.shadowOpacity = 0
+        self.layer.shadowOffset = CGSizeMake(10.0, 10.0)
+        self.layer.shadowRadius = 15.0
+        self.layer.masksToBounds = false
+        
+        let path = UIBezierPath(rect: self.bounds)
+        self.layer.shadowPath = path.CGPath
     }
     
     
@@ -73,6 +84,13 @@ class TileView: UIImageView {
             let point = touch.locationInView(self.superview)
             xOffset = point.x - self.center.x
             yOffset = point.y - self.center.y
+            self.layer.shadowOpacity = 0.8
+            
+            // save current transform
+            tempTransform = self.transform
+            self.transform = CGAffineTransformScale(self.transform, 1.2, 1.2)
+            
+            self.superview?.bringSubviewToFront(self)
         }
     }
     
@@ -88,7 +106,15 @@ class TileView: UIImageView {
     
     override func touchesEnded(touches: Set<UITouch>, withEvent event: UIEvent?) {
         self.touchesMoved(touches, withEvent: event)
+        self.transform = tempTransform
         dragDelegate?.tileView(self, didDragToPoint: self.center)
+        self.layer.shadowOpacity = 0.0
+    }
+    
+    
+    override func touchesCancelled(touches: Set<UITouch>?, withEvent event: UIEvent?) {
+        self.transform = tempTransform
+        self.layer.shadowOpacity = 0.0
     }
     
 }

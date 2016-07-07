@@ -36,6 +36,7 @@
 		F3496FBB1D1DF185000CE15A /* GameController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F3496FBA1D1DF185000CE15A /* GameController.swift */; };
 		F3496FBD1D1DFAD2000CE15A /* TileView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F3496FBC1D1DFAD2000CE15A /* TileView.swift */; };
 		F3496FBF1D1E0858000CE15A /* TargetView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F3496FBE1D1E0858000CE15A /* TargetView.swift */; };
+		F3649B231D2E9C0E00D4F866 /* AudioController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F3649B221D2E9C0E00D4F866 /* AudioController.swift */; };
 		F3F5C4E21D2567D80058DF71 /* StopwatchView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F3F5C4E11D2567D80058DF71 /* StopwatchView.swift */; };
 		F3F5C4E41D2568DE0058DF71 /* HUDView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F3F5C4E31D2568DE0058DF71 /* HUDView.swift */; };
 		F3F5C4E61D25B00E0058DF71 /* GameData.swift in Sources */ = {isa = PBXBuildFile; fileRef = F3F5C4E51D25B00E0058DF71 /* GameData.swift */; };
@@ -86,6 +87,7 @@
 		F3496FBA1D1DF185000CE15A /* GameController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GameController.swift; sourceTree = "<group>"; };
 		F3496FBC1D1DFAD2000CE15A /* TileView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TileView.swift; sourceTree = "<group>"; };
 		F3496FBE1D1E0858000CE15A /* TargetView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TargetView.swift; sourceTree = "<group>"; };
+		F3649B221D2E9C0E00D4F866 /* AudioController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AudioController.swift; sourceTree = "<group>"; };
 		F3F5C4E11D2567D80058DF71 /* StopwatchView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StopwatchView.swift; sourceTree = "<group>"; };
 		F3F5C4E31D2568DE0058DF71 /* HUDView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HUDView.swift; sourceTree = "<group>"; };
 		F3F5C4E51D25B00E0058DF71 /* GameData.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GameData.swift; sourceTree = "<group>"; };
@@ -217,6 +219,7 @@
 			isa = PBXGroup;
 			children = (
 				F3496FBA1D1DF185000CE15A /* GameController.swift */,
+				F3649B221D2E9C0E00D4F866 /* AudioController.swift */,
 			);
 			name = Controllers;
 			sourceTree = "<group>";
@@ -403,6 +406,7 @@
 				F3496FBD1D1DFAD2000CE15A /* TileView.swift in Sources */,
 				82C889A3198B13C600F90156 /* Config.swift in Sources */,
 				F3F5C4E21D2567D80058DF71 /* StopwatchView.swift in Sources */,
+				F3649B231D2E9C0E00D4F866 /* AudioController.swift in Sources */,
 				F3496FBF1D1E0858000CE15A /* TargetView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
