@@ -98,6 +98,11 @@ class GameController {
                 (value: Bool) in
                 targetView.hidden = true
         })
+        
+        let explode = ExplodeView(frame: CGRectMake(tileView.center.x, tileView.center.y, 10, 10))
+        tileView.superview?.addSubview(explode)
+        tileView.superview?.sendSubviewToBack(explode)
+        
     }
     
     

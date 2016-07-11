@@ -23,7 +23,6 @@ class StopwatchView: UILabel {
     
     
     func setSecondsRemaining(secondsLeft:Int) {
-        logFn(file: #file, function: #function)
         self.text = String(format: "%02i : %02i", secondsLeft/60, secondsLeft%60)
     }
 }
